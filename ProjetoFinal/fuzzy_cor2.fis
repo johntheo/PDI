@@ -1,0 +1,56 @@
+[System]
+Name='fuzzy_cor2'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='vermelho'
+Range=[0 255]
+NumMFs=2
+MF1='pouco':'trimf',[-150 0 150]
+MF2='muito':'trimf',[100 255 355]
+
+[Input2]
+Name='verde'
+Range=[0 255]
+NumMFs=2
+MF1='pouco':'trimf',[-150 0 150]
+MF2='muito':'trimf',[100 255 355]
+
+[Input3]
+Name='azul'
+Range=[0 255]
+NumMFs=2
+MF1='pouco':'trimf',[-150 0 150]
+MF2='muito':'trimf',[100 255 355]
+
+[Output1]
+Name='cor'
+Range=[0 8]
+NumMFs=8
+MF1='vermelho':'trimf',[0 0.5 1]
+MF2='magenta':'trimf',[3 3.5 4]
+MF3='branco':'trimf',[6 6.5 7]
+MF4='azul':'trimf',[2 2.5 3]
+MF5='verde':'trimf',[1 1.5 2]
+MF6='ciano':'trimf',[5 5.5 6]
+MF7='amarelo':'trimf',[4 4.5 5]
+MF8='preto':'trimf',[7 7.5 8]
+
+[Rules]
+1 1 2, 4 (1) : 1
+1 2 1, 5 (1) : 1
+1 2 2, 6 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 2 (1) : 1
+2 2 1, 7 (1) : 1
+2 2 2, 3 (1) : 1
+1 1 1, 8 (1) : 1
